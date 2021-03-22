@@ -3,6 +3,7 @@ module.exports = KnightMoves = (
     xaxis,
     yaxis,
     PircesPositionWhite,
+    PircesPositionBlack,
     ValidateInput,
     possibleMoves,
     color
@@ -15,8 +16,10 @@ module.exports = KnightMoves = (
                     return true;
                 }
             } else {
-                possibleMoves.push(nextMove);
-                return true;
+                if (!PircesPositionBlack.includes(nextMove)) {
+                    possibleMoves.push(nextMove);
+                    return true;
+                }
             }
     };
     //Top Right2

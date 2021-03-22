@@ -32,7 +32,9 @@ const KingMoves = (position, color) => {
                         possibleMoves.push(nextMove);
                     }
                 } else {
-                    possibleMoves.push(nextMove);
+                    if (!PircesPositionBlack.includes(nextMove)) {
+                        possibleMoves.push(nextMove);
+                    }
                 }
         };
 
@@ -188,6 +190,7 @@ const KnightMove = (position, color) => {
             xaxis,
             yaxis,
             PircesPositionWhite,
+            PircesPositionBlack,
             ValidateInput,
             possibleMoves,
             color
@@ -222,7 +225,9 @@ const PawnMoves = (position, color) => {
                     possibleMoves.push(nextMove);
                 }
             } else {
-                possibleMoves.push(nextMove);
+                if (!PircesPositionBlack.includes(nextMove)) {
+                    possibleMoves.push(nextMove);
+                }
             }
         // console.log(possibleMoves);
         console.log(
