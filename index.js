@@ -217,18 +217,39 @@ const PawnMoves = (position, color) => {
 
     let { xaxis, yaxis } = ValidateInput(position, true);
     if (xaxis + 1 && yaxis) {
-        const nextMove = axisIndex[xaxis] + (yaxis + 1);
-
-        if (ValidateInput(nextMove))
-            if (color === "W") {
-                if (!PircesPositionWhite.includes(nextMove)) {
-                    possibleMoves.push(nextMove);
-                }
-            } else {
-                if (!PircesPositionBlack.includes(nextMove)) {
-                    possibleMoves.push(nextMove);
-                }
-            }
+        if (color === "W") {
+            const nextMove = axisIndex[xaxis] + (yaxis + 1);
+            if (nextMove[1] !== 1)
+                if (ValidateInput(nextMove))
+                    if (!PircesPositionWhite.includes(nextMove)) {
+                        possibleMoves.push(nextMove);
+                        if (nextMove[1] == 3) {
+                            console.log("in");
+                            if (!PircesPositionBlack.includes(nextMove)) {
+                                console.log("in");
+                                ValidateInput(axisIndex[xaxis] + (yaxis + 2)) &&
+                                    possibleMoves.push(
+                                        axisIndex[xaxis] + (yaxis + 2)
+                                    );
+                            }
+                        }
+                    }
+        } else {
+            const nextMove = axisIndex[xaxis] + (yaxis - 1);
+            if (nextMove[1] !== 8)
+                if (ValidateInput(nextMove))
+                    if (!PircesPositionBlack.includes(nextMove)) {
+                        possibleMoves.push(nextMove);
+                        if (nextMove[1] == 6) {
+                            if (!PircesPositionWhite.includes(nextMove)) {
+                                ValidateInput(axisIndex[xaxis] + (yaxis - 2)) &&
+                                    possibleMoves.push(
+                                        axisIndex[xaxis] + (yaxis - 2)
+                                    );
+                            }
+                        }
+                    }
+        }
         // console.log(possibleMoves);
         console.log(
             boxen(
