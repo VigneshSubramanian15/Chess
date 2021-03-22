@@ -39,5 +39,5 @@
 | Output                                                                |
 | :-------------------------------------------------------------------- |
 | **Rook On A1 can move to: B1,C1,D1,E1,F1,G1,H1,A2,A3,A4,A5,A6,A7,A8** |
-| **Pawn On E2 can move to: E3**                                        |
+| **Pawn On E2 can move to: E1**                                        |
 | **Rook On C3 can move to: D3,E3,F3,G3,H3,B3,A3,C4,C5,C6,C7,C8,C2,C1** |
